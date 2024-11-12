@@ -24,6 +24,7 @@ pipeline {
     stage("Deploy to staging ou déployer en préproduction "){
    
     steps {
+    sh "docker rm -f calculatrice || true"
      sh "docker run -d --rm -p 8882:8888 --name calculatrice   localhost:5000/calculatrice "
     
     }
